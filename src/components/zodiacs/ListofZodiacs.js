@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { API } from "../../constants/api";
 
@@ -10,6 +11,7 @@ function ListofZodiacs() {
     async function fetchData() {
       try {
         const response = await fetch(API);
+        console.log(response.url);
 
         if (response.ok) {
           const json = await response.json();
@@ -37,9 +39,8 @@ function ListofZodiacs() {
 
   return (
     <>
-      {zodiacs.map(function (zodiac, index) {
-        return <div><p>{zodiac.keywords}</p></div>;
-        // return <div key={zodiac.id}><p>{zodiac.keywords}</p></div>;
+      {zodiacs.map(function (zodiac) {
+        return <div key={zodiac.id}><p>{zodiac.title}</p></div>;
       })}
     </>
   );
