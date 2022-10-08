@@ -42,7 +42,7 @@ function ListofZodiacs() {
     <>
       {zodiacs.map(function (zodiac) {
         // I have tried many variations of the line below.
-        return <div key={zodiac.id}><p>{zodiac.name}</p></div>;
+        return <div key={zodiac.id}><p>{zodiac.attributes.name}</p></div>;
       })}
     </>
   );
