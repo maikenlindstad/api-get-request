@@ -16,6 +16,7 @@ function ListofZodiacs() {
         if (response.ok) {
           const json = await response.json();
           console.log(json.data);
+          console.log(json.data[0].attributes.keywords)
           setZodiacs(json.data);
         } else {
           setError("An error occured");
@@ -40,7 +41,8 @@ function ListofZodiacs() {
   return (
     <>
       {zodiacs.map(function (zodiac) {
-        return <div key={zodiac.id}><p>{zodiac.title}</p></div>;
+        // I have tried many variations of the line below.
+        return <div key={zodiac.id}><p>{zodiac.name}</p></div>;
       })}
     </>
   );
